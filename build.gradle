@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'eclipse'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def junit_version = '5.6.2'
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit_version}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit_version}"
+}
+
+test {
+    // Use junit platform for unit tests
+    useJUnitPlatform()
+}
