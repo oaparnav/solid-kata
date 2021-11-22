@@ -1,22 +1,19 @@
 package srp;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InOrder;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.mockito.ArgumentMatchers.refEq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
-@RunWith(MockitoJUnitRunner.class)
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.InOrder;
+import org.mockito.Mock;
+
 public class AccountServiceShould {
 
     private static final int POSITIVE_AMOUNT = 100;
@@ -39,7 +36,7 @@ public class AccountServiceShould {
 
     private AccountService accountService;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         accountService = new AccountService(transactionRepository, clock, console);
         given(clock.today()).willReturn(TODAY);

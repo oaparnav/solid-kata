@@ -13,6 +13,8 @@ def junit_version = '5.6.2'
 dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junit_version}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit_version}"
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    
 }
 
 test {
