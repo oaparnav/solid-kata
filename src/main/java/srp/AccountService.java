@@ -80,6 +80,7 @@ public class AccountService {
 
 
     private void printLine(String line) {
+    	System.out.println(line);
         console.printLine(line);
     }
 }
