@@ -19,16 +19,15 @@ public class AccountService {
     private static final String AMOUNT_FORMAT = "#.00";
 
     private TransactionRepository transactionRepository;
-    private Clock clock;
     private Console console;
 
-    public AccountService(TransactionRepository transactionRepository, Clock clock, Console console) {
-        this.transactionRepository = transactionRepository;
-        this.clock = clock;
-        this.console = console;
-    }
+    public AccountService(TransactionRepository transactionRepository, Console console) {
+		this.transactionRepository = transactionRepository;
+		this.console = console;
+	}
 
-    public void deposit(int amount) {
+
+	public void deposit(int amount) {
         transactionRepository.add(transactionWith(amount));
     }
 
@@ -60,7 +59,7 @@ public class AccountService {
 
 
     private Transaction transactionWith(int amount) {
-        return new Transaction(clock.today(), amount);
+        return new Transaction(LocalDate.now(), amount);
     }
 
 
@@ -80,7 +79,6 @@ public class AccountService {
 
 
     private void printLine(String line) {
-    	System.out.println(line);
-        console.printLine(line);
+    	this.console.printLine(line);
     }
 }
