@@ -21,16 +21,14 @@ public class AccountServiceTest {
 
     private static final int POSITIVE_AMOUNT = 100;
     private static final int NEGATIVE_AMOUNT = -POSITIVE_AMOUNT;
-    private static final LocalDate TODAY = LocalDate.of(2021, 11, 26);
+//    private static final LocalDate TODAY = LocalDate.of(2021, 11, 26);
+    private static final LocalDate TODAY = LocalDate.now();
     
     private static final List<Transaction> TRANSACTIONS = Arrays.asList(
         new Transaction(LocalDate.of(2021, 12, 1), 1000),
         new Transaction(LocalDate.of(2021, 12, 2), -100),
         new Transaction(LocalDate.of(2021, 12, 10), 500)
     );
-
-    @Mock
-    private Clock clock;
 
     @Mock
     private TransactionRepository transactionRepository;
@@ -42,12 +40,11 @@ public class AccountServiceTest {
 
     @BeforeEach
     public void setUp() {
-        accountService = new AccountService(transactionRepository, clock, console);
+        accountService = new AccountService(transactionRepository,console);
     }
     
     @Test
     public void deposit_amount_into_the_account() {
-    	given(clock.today()).willReturn(TODAY);
 
         accountService.deposit(POSITIVE_AMOUNT);
 
@@ -58,7 +55,6 @@ public class AccountServiceTest {
     @Test
     public void withdraw_amount_from_the_account() {
 
-    	given(clock.today()).willReturn(TODAY);
 
         accountService.withdraw(POSITIVE_AMOUNT);
 
