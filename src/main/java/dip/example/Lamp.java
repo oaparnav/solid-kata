@@ -1,14 +1,14 @@
 package dip.example;
 
-public class Lamp
-{
+public class Lamp implements Device {
     private int _color;
-
+    
+    @Override
     public void turnOn()
     {
         System.out.println("Lamp turned on");
     }
-
+    @Override
     public void turnOff()
     {
         System.out.println("Lamp turned off");

@@ -2,12 +2,12 @@ package dip.example;
 
 public class Button
 {
-    private Lamp _lamp;
+    private Device _device;
     private boolean _state;
 
-    public Button(Lamp lamp)
+    public Button(Device device)
     {
-        _lamp = lamp;
+        _device = device;
     }
 
     public void toggle()
@@ -15,9 +15,9 @@ public class Button
         _state = !_state;
         boolean buttonOn = _state;
         if (buttonOn) {
-            _lamp.turnOn();
+            _device.turnOn();
         } else {
-            _lamp.turnOff();
+            _device.turnOff();
         }
     }
 
